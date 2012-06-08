@@ -1,3 +1,5 @@
+#!/bin/sh
+
 SOURCE="${BASH_SOURCE[0]}"
 DIR="$( dirname "$SOURCE" )"
 while [ -h "$SOURCE" ]
