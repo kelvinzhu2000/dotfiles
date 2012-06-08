@@ -10,17 +10,25 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
 for file in $DIR/\.*
 do
+    [[ $file =~ (\.([-_a-zA-Z0-9])+)*$ ]]
+    baseFile=$BASH_REMATCH
+
     if [[ $file =~ .*\/\.$ || $file =~ .*\/\.\.$ ]]
     then
-        echo "ignoring "$file
+        echo "ignoring $file"
     elif [[ $file =~ .*\/\.git$ ]]
     then
-        echo "ignoring "$file
+        echo "ignoring $file"
     elif [[ $file =~ .*\.swp$ ]]
     then
-        echo "ignoring "$file
+        echo "ignoring $file"
     else
-        echo "linking "$file
+        if [[ -a ~/$baseFile ]]
+        then
+            echo "removing $baseFile"
+            rm -rf ~/$baseFile
+        fi
+        echo "linking $file"
         ln -s $file ~
     fi
 done
