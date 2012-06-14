@@ -6,6 +6,9 @@ runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect()
 filetype plugin indent on
 
+" Used as beginning of other commands
+let mapleader = ","
+
 " Hides buffers instead of closing them.  This means that you can have
 " unwritten changes to a file and open a new file using :e, without being
 " forced to write or undo your changes first. Also, undo buffers and marks are
@@ -90,6 +93,20 @@ nmap <silent> <leader>s :set nolist!<CR>
 ab jjm echo "\n", print_r('insert here', 1), "\n";exit;
 ab jjh echo "<pre>", print_r('insert here', 1), "</pre>";exit;
 autocmd BufRead,BufNewFile *.psql setfiletype php
+
+" Replace insert point of above items, but only deletes up to next comma
+function! PutInsertion(type)
+    if a:type == 'newline'
+        normal oecho "\n", print_r(, 1), "\n"; exit;
+    endif
+    if a:type == 'pre'
+        normal oecho "<pre>", print_r(, 1), "\n"; exit;
+    endif
+    normal ^5wl
+    startinsert
+endfunction
+nnoremap <leader>cm :call PutInsertion('newline')<CR>
+nnoremap <leader>ch :call PutInsertion('pre')<CR>
 
 syntax enable
 let g:solarized_termtrans = 1
