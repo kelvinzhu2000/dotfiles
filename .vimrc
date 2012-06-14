@@ -90,23 +90,33 @@ autocmd FileType * set fo-=r fo-=o nocindent noautoindent
 set listchars=tab:>-,trail:.,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
-ab jjm echo "\n", print_r('insert here', 1), "\n";exit;
-ab jjh echo "<pre>", print_r('insert here', 1), "</pre>";exit;
 autocmd BufRead,BufNewFile *.psql setfiletype php
 
-" Replace insert point of above items, but only deletes up to next comma
+" Put in an insertion point
 function! PutInsertion(type)
     if a:type == 'newline'
-        normal oecho "\n", print_r(, 1), "\n"; exit;
+        normal oecho "\n", print_r('insert here', 1), "\n"; exit;
     endif
     if a:type == 'pre'
-        normal oecho "<pre>", print_r(, 1), "\n"; exit;
+        normal oecho "<pre>", print_r('insert here', 1), "\n"; exit;
     endif
     normal ^5wl
+endfunction
+
+" Replace insert point of above items, but only deletes up to next comma
+function! ReplaceInsertion()
+    normal ^5wlvt,d
     startinsert
 endfunction
-nnoremap <leader>cm :call PutInsertion('newline')<CR>
-nnoremap <leader>ch :call PutInsertion('pre')<CR>
+
+function! AddInsertion(type)
+    call PutInsertion(a:type)
+    call ReplaceInsertion()
+endfunction
+nnoremap <leader>jm :call AddInsertion('newline')<CR>
+nnoremap <leader>jh :call AddInsertion('pre')<CR>
+nnoremap <leader>im :call PutInsertion('newline')<CR>
+nnoremap <leader>ih :call PutInsertion('pre')<CR>
 
 syntax enable
 let g:solarized_termtrans = 1
