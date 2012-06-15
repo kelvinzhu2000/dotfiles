@@ -29,3 +29,6 @@
 [core]
     autocrlf = input
     editor = vim
+[user]
+	name = kelvinzhu2000
+	email = kelvinzhu2000@yahoo.com
