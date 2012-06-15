@@ -10,6 +10,9 @@ do
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
+rm -rf .oh-my-zsh/themes/bunsen.zsh-theme
+cp bunsen.zsh-theme .oh-my-zsh/themes/
+
 for file in $DIR/\.*
 do
     [[ $file =~ (\.([-_a-zA-Z0-9])+)*$ ]]
