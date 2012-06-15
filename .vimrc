@@ -90,6 +90,10 @@ autocmd FileType * set fo-=r fo-=o nocindent noautoindent
 set listchars=tab:>-,trail:.,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
+" Better tab completion when looking for files
+set wildmode=longest,list,full
+set wildmenu
+
 autocmd BufRead,BufNewFile *.psql setfiletype php
 
 " Put in an insertion point
@@ -98,7 +102,7 @@ function! PutInsertion(type)
         normal oecho "\n", print_r('insert here', 1), "\n"; exit;
     endif
     if a:type == 'pre'
-        normal oecho "<pre>", print_r('insert here', 1), "\n"; exit;
+        normal oecho "<pre>", print_r('insert here', 1), "</pre>"; exit;
     endif
     normal ^5wl
 endfunction
@@ -109,14 +113,75 @@ function! ReplaceInsertion()
     startinsert
 endfunction
 
+" Combine the above two into one action
 function! AddInsertion(type)
     call PutInsertion(a:type)
     call ReplaceInsertion()
 endfunction
-nnoremap <leader>jm :call AddInsertion('newline')<CR>
-nnoremap <leader>jh :call AddInsertion('pre')<CR>
+" shortcuts for the insertion functions
+nnoremap <leader>cm :call AddInsertion('newline')<CR>
+nnoremap <leader>ch :call AddInsertion('pre')<CR>
 nnoremap <leader>im :call PutInsertion('newline')<CR>
 nnoremap <leader>ih :call PutInsertion('pre')<CR>
+nnoremap <leader>cr :call ReplaceInsertion()<CR>
+
+let g:comment = '//'
+function AC()
+    let curr_line = getline('.')
+    let replacement = substitute(curr_line, '^', g:comment, '')
+    call setline('.', replacement)
+endfunction
+function RC()
+    let curr_line = getline('.')
+    let replacement = substitute(curr_line, '^' . g:comment, '', '')
+    call setline('.', replacement)
+endfunction
+nnoremap <leader>ac :call AC()<CR>
+nnoremap <leader>rc :call RC()<CR>
+
+" Aligner of = signs
+function AlignAssignments ()
+    "Patterns needed to locate assignment operators...
+    let ASSIGN_OP   = '[-+*/%|&]\?=\@<!=[=~]\@!'
+    let ASSIGN_LINE = '^\(.\{-}\)\s*\(' . ASSIGN_OP . '\)'
+
+    "Locate block of code to be considered (same indentation, no blanks)
+    let indent_pat = '^' . matchstr(getline('.'), '^\s*') . '\S'
+    let firstline  = search('^\%('. indent_pat . '\)\@!','bnW') + 1
+    let lastline   = search('^\%('. indent_pat . '\)\@!', 'nW') - 1
+    if lastline < 0
+        let lastline = line('$')
+    endif
+
+    "Find the column at which the operators should be aligned...
+    let max_align_col = 0
+    let max_op_width  = 0
+    for linetext in getline(firstline, lastline)
+        "Does this line have an assignment in it?
+        let left_width = match(linetext, '\s*' . ASSIGN_OP)
+
+        "If so, track the maximal assignment column and operator width...
+        if left_width >= 0
+            let max_align_col = max([max_align_col, left_width])
+
+            let op_width      = strlen(matchstr(linetext, ASSIGN_OP))
+            let max_op_width  = max([max_op_width, op_width+1])
+         endif
+    endfor
+
+    "Code needed to reformat lines so as to align operators...
+    let FORMATTER = '\=printf("%-*s%*s", max_align_col, submatch(1),
+    \                                    max_op_width,  submatch(2))'
+
+    " Reformat lines with operators aligned in the appropriate column...
+    for linenum in range(firstline, lastline)
+        let oldline = getline(linenum)
+        let newline = substitute(oldline, ASSIGN_LINE, FORMATTER, "")
+        call setline(linenum, newline)
+    endfor
+endfunction
+
+nnoremap <leader>ll  :call AlignAssignments()<CR>
 
 syntax enable
 let g:solarized_termtrans = 1
