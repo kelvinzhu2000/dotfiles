@@ -1,0 +1,34 @@
+let s:textdir = $HOME . '/.myvimfiles/cpp/'
+
+function! AddFunctionComment()
+    call append(line('.')-1, readfile(s:textdir . 'php-function-comment.txt'))
+    normal kk$
+    startinsert!
+endfunction
+nnoremap <leader>fc :call AddFunctionComment()<CR>
+
+function! AddPHPPublicFunction()
+    call append(line('.'), readfile(s:textdir . 'php-public-function.txt'))
+    normal j02e2l
+    startinsert
+endfunction
+nnoremap<leader>puf :call AddPHPPublicFunction()<CR>
+
+function! AddPHPPrivateFunction()
+    call append(line('.'), readfile(s:textdir . 'php-private-function.txt'))
+    normal j02e2l
+    startinsert
+endfunction
+nnoremap<leader>pif :call AddPHPPrivateFunction()<CR>
+
+function! AddPHPProtectedFunction()
+    call append(line('.'), readfile(s:textdir . 'php-protected-function.txt'))
+    normal j02e2l
+    startinsert
+endfunction
+nnoremap<leader>pof :call AddPHPProtectedFunction()<CR>
+
+function! AddWiredriveHeader()
+    call append(line('.')-1, readfile(s:textdir . 'wiredrive-header.txt'))
+endfunction
+nnoremap <leader>wh :call AddWiredriveHeader()<CR>

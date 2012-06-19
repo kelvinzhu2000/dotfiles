@@ -1,0 +1,6 @@
+/**
+ * Wiredrive
+ * Digital Asset Management System: Upload, Manage, and Present Digital Media
+ *
+ * @copyright  Copyright (c) Wiredrive
+ */

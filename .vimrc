@@ -183,6 +183,9 @@ endfunction
 
 nnoremap <leader>ll  :call AlignAssignments()<CR>
 
+" Make it so that current dir follows files that are opened
+set autochdir
+
 syntax enable
 let g:solarized_termtrans = 1
 colorscheme solarized
@@ -193,3 +196,6 @@ set clipboard=unnamed
 set textwidth=80
 set colorcolumn=+1
 hi ColorColumn guibg=#2d2d2d ctermbg=246
+
+" Include text insertions
+source $HOME/.myvimfiles/src/text-insertions
