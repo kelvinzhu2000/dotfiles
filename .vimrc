@@ -197,5 +197,14 @@ set textwidth=80
 set colorcolumn=+1
 hi ColorColumn guibg=#2d2d2d ctermbg=246
 
+" Display end of line and extra whitespace
+set list
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+hi NonText ctermfg=gray guifg=gray ctermbg=lightgray guibg=lightgray
+
+" Mappings for handling unwanted whitespace
+nnoremap <leader>ss :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <leader>st :let _s=@/<Bar>:%s/\t/    /ge<Bar>:let @/=_s<Bar>:nohl<CR>
+
 " Include text insertions
 source $HOME/.myvimfiles/src/text-insertions
