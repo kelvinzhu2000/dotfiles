@@ -50,3 +50,6 @@ bindkey '^N' history-search-forward
 
 #allow easy commenting of zshrc lines
 setopt interactivecomments
+
+# Tmuxinator Integration
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator && source /usr/bin/tmuxinator_completion
