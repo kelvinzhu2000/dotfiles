@@ -186,6 +186,9 @@ nnoremap <leader>ll  :call AlignAssignments()<CR>
 " Make it so that current dir follows files that are opened
 set autochdir
 
+" Add line numbers
+set number
+
 syntax enable
 let g:solarized_termtrans = 1
 colorscheme solarized
@@ -204,7 +207,7 @@ hi NonText ctermfg=gray guifg=gray ctermbg=lightgray guibg=lightgray
 
 " Mappings for handling unwanted whitespace
 nnoremap <leader>ss :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-nnoremap <leader>st :let _s=@/<Bar>:%s/\t/    /ge<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <leader>st :let _s=@/<Bar>:%retab<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Include text insertions
 source $HOME/.myvimfiles/src/text-insertions
