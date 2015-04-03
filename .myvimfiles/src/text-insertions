@@ -7,6 +7,13 @@ function! AddFunctionComment()
 endfunction
 nnoremap <leader>fc :call AddFunctionComment()<CR>
 
+function! AddSectionComment()
+    call append(line('.')-1, readfile(s:textdir . 'php-section-comment.txt'))
+    normal kk$
+    startinsert!
+endfunction
+nnoremap <leader>sc :call AddSectionComment()<CR>
+
 function! AddPHPPublicFunction()
     call append(line('.'), readfile(s:textdir . 'php-public-function.txt'))
     normal j02e2l

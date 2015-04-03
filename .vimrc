@@ -15,6 +15,8 @@ let mapleader = ","
 " preserved while the buffer is open.
 set hidden
 
+set enc=utf-8
+
 set nowrap         " don't wrap lines
 set tabstop=4      " a tab is four spaces
 set softtabstop=4
@@ -104,26 +106,38 @@ function! PutInsertion(type)
     if a:type == 'pre'
         normal oecho "<pre>", print_r('insert here', 1), "</pre>"; exit;
     endif
+    if a:type == 'python'
+        normal oimport pdb; pdb.set_trace()
+    endif
     normal ^5wl
 endfunction
 
 " Replace insert point of above items, but only deletes up to next comma
-function! ReplaceInsertion()
-    normal ^5wlvt,d
+function! ReplaceInsertion(type)
+    if a:type == 'newline'
+        normal ^5wlvt,d
+    endif
+    if a:type == 'pre'
+        normal ^5wlvt,d
+    endif
+    if a:type == 'python'
+        normal ^5wlvt)d
+    endif
     startinsert
 endfunction
 
 " Combine the above two into one action
 function! AddInsertion(type)
     call PutInsertion(a:type)
-    call ReplaceInsertion()
+    call ReplaceInsertion(a:type)
 endfunction
 " shortcuts for the insertion functions
 nnoremap <leader>cm :call AddInsertion('newline')<CR>
 nnoremap <leader>ch :call AddInsertion('pre')<CR>
 nnoremap <leader>im :call PutInsertion('newline')<CR>
 nnoremap <leader>ih :call PutInsertion('pre')<CR>
-nnoremap <leader>cr :call ReplaceInsertion()<CR>
+nnoremap <leader>cr :call ReplaceInsertion('newline')<CR>
+nnoremap <leader>cp :call PutInsertion('python')<CR>
 
 let g:comment = '//'
 function AC()
