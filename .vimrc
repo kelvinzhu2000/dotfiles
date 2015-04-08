@@ -1,6 +1,8 @@
 " should be first becuase it changes other options as side effects
 set nocompatible
 
+set enc=utf-8
+
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 
 call pathogen#infect()
