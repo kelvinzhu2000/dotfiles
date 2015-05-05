@@ -2,21 +2,24 @@
 # you can make as many tabs as you wish...
 
 name: Texts
-root: ~/Documents/Other
+root: ~/Documents
 windows:
   - Books:
+      root: ~/Documents/Books
       layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
       panes:
         -
         -
         - vim -p Books
   - Walkthroughs:
+      root: ~/Documents/Walkthroughs
       layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
       panes:
         -
         -
         - vim -p Walkthroughs
   - Blog:
+      root: ~/Documents/Blog
       layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
       panes:
         -
