@@ -37,8 +37,6 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/bin/android-sdk/tools
-
 export EDITOR="vim"
 bindkey -v
 
