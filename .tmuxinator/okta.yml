@@ -1,0 +1,80 @@
+# ~/.tmuxinator/okta.yml
+# you can make as many tabs as you wish...
+
+name: Okta
+root: ~/okta
+windows:
+  - Aperture:
+      root: ~/okta/statusboard/aperture
+      layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
+      panes:
+        -
+        -
+        - vim -p .
+  - Bacon:
+      root: ~/okta/bacon
+      layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
+      panes:
+        -
+        -
+        - vim -p .
+  - Chef:
+      root: ~/okta/dev-chef-repo
+      layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
+      panes:
+        -
+        -
+        - vim -p .
+  - JenkinsTasks:
+      root: ~/okta/jenkins-tasks
+      layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
+      panes:
+        -
+        -
+        - vim -p .
+  - Anchor:
+      root: ~/okta/anchor
+      layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
+      panes:
+        -
+        -
+        - vim -p .
+  - Database:
+      root: ~/okta
+      layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
+      panes:
+        - mysql -u root -psAAsysu3
+        -
+        - vim -p .
+  - Logs:
+      root: ~/okta
+      layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
+      panes:
+        -
+        -
+        -
+  - FullscreenVim:
+      root: ~/okta
+      layout: main-vertical
+      panes:
+        - vim -p .
+  - FullscreenTerminal:
+      root: ~/okta
+      layout: main-vertical
+      panes:
+        -
+  - Build:
+      root: ~/okta
+      layout: main-vertical
+      panes:
+        -
+  - Ssh1:
+      root: ~/okta
+      layout: main-vertical
+      panes:
+        -
+  - Ssh2:
+      root: ~/okta
+      layout: main-vertical
+      panes:
+        -

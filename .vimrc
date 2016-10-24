@@ -90,6 +90,8 @@ filetype plugin on
 " This works, and overrides the options for any filetype.
 autocmd FileType * set fo-=r fo-=o nocindent noautoindent
 
+autocmd Filetype ruby,js,xml,json setlocal expandtab tabstop=2 shiftwidth=2 softtabstop=2
+
 " Catch trailing whitespaces 
 set listchars=tab:>-,trail:.,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
@@ -226,3 +228,10 @@ nnoremap <leader>st :let _s=@/<Bar>:%retab<Bar>:let @/=_s<Bar>:nohl<CR>
 
 " Include text insertions
 source $HOME/.myvimfiles/src/text-insertions
+
+" Use <leader>t to open ctrlp
+let g:ctrlp_map = '<leader>t'
+" Ignore these directories
+set wildignore+=*/build/**
+" disable caching
+let g:ctrlp_use_caching=0

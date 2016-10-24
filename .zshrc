@@ -53,3 +53,5 @@ setopt interactivecomments
 
 # Tmuxinator Integration
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator && source /usr/bin/tmuxinator_completion
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

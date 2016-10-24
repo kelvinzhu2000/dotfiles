@@ -10,21 +10,21 @@ windows:
       panes:
         -
         -
-        - vim -p Books
+        - vim -p .
   - Walkthroughs:
       root: ~/Documents/Walkthroughs
       layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
       panes:
         -
         -
-        - vim -p Walkthroughs
+        - vim -p .
   - Blog:
       root: ~/Documents/Blog
       layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
       panes:
         -
         -
-        - vim -p Blog/BlogIdeas.txt
+        - vim -p BlogIdeas.txt
   - Miscellaneous:
       layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
       panes:
