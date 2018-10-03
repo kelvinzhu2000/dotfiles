@@ -9,9 +9,9 @@ do
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-mkdir -p $DIR/.oh-my-zsh/themes
-rm -rf $DIR/.oh-my-zsh/themes/bunsen.zsh-theme
-cp $DIR/bunsen.zsh-theme $DIR/.oh-my-zsh/themes/
+mkdir -p ~/.oh-my-zsh/themes
+rm -rf ~/.oh-my-zsh/themes/bunsen.zsh-theme
+cp $DIR/bunsen.zsh-theme ~/.oh-my-zsh/themes/
 
 for file in $DIR/\.*
 do
