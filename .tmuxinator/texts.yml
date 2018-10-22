@@ -18,16 +18,14 @@ windows:
         -
         -
         - vim -p .
-  - Blog:
-      root: ~/Documents/Blog
-      layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
-      panes:
-        -
-        -
-        - vim -p BlogIdeas.txt
   - Miscellaneous:
       layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
       panes:
         -
         -
         - vim -p Work/workideas.txt
+  - FullscreenVim:
+      root: ~
+      layout: main-vertical
+      panes:
+        - vim -p .

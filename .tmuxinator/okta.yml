@@ -18,22 +18,15 @@ windows:
         -
         -
         - vim -p .
-  - Chef:
-      root: ~/okta/dev-chef-repo
+  - RoboWarrior:
+      root: ~/okta/robo-warrior
       layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
       panes:
         -
         -
         - vim -p .
-  - JenkinsTasks:
-      root: ~/okta/jenkins-tasks
-      layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
-      panes:
-        -
-        -
-        - vim -p .
-  - Anchor:
-      root: ~/okta/anchor
+  - Albatross:
+      root: ~/okta/Oniisan
       layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
       panes:
         -
