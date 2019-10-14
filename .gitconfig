@@ -32,3 +32,9 @@
 [user]
 	name = kelvinzhu2000
 	email = kelvinzhu2000@yahoo.com
+[branch]
+	autosetupmerge = always
+[credential]
+	helper = store
+[github]
+	user = kelvinzhu-okta
