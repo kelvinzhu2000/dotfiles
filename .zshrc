@@ -54,3 +54,7 @@ source ~/.bin/tmuxinator.zsh
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 export RPROMPT="[%D{%y/%m/%f}|%@]"
+
+# strap:straprc:begin
+[ -r "$HOME/.strap/etc/straprc" ] && . "$HOME/.strap/etc/straprc"
+# strap:straprc:end
