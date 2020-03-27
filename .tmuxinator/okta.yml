@@ -50,7 +50,7 @@ windows:
       root: ~/okta
       layout: main-vertical
       panes:
-        - vim -p .
+        - vim -p ~/Box/Work/UsefulCommands.txt
   - FullscreenTerminal:
       root: ~/okta
       layout: main-vertical

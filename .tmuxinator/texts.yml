@@ -10,14 +10,14 @@ windows:
       panes:
         -
         -
-        - vim -p .
+        - vim -p ~/Box\ Sync/Books
   - Walkthroughs:
       root: ~/Documents/Walkthroughs
       layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
       panes:
         -
         -
-        - vim -p .
+        - vim -p ~/Box\ Sync/Walkthroughs
   - Miscellaneous:
       layout: 87cd,272x65,0,0{135x65,0,0[135x48,0,0,0,135x16,0,49,2],136x65,136,0,1}
       panes:

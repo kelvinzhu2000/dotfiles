@@ -201,9 +201,6 @@ endfunction
 
 nnoremap <leader>ll  :call AlignAssignments()<CR>
 
-" Make it so that current dir follows files that are opened
-set autochdir
-
 " Add line numbers
 set number
 
@@ -235,3 +232,7 @@ let g:ctrlp_map = '<leader>t'
 set wildignore+=*/build/**
 " disable caching
 let g:ctrlp_use_caching=0
+
+" Make it so that current dir follows files that are opened
+set autochdir
+autocmd BufEnter * silent! lcd %:p:h
