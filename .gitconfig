@@ -30,11 +30,18 @@
     autocrlf = input
     editor = vim
 [user]
-	name = kelvinzhu2000
-	email = kelvinzhu2000@yahoo.com
+	name = Kelvin Zhu
+	email = kelvin.zhu@okta.com
+	signingkey = 469FFDB0B5552937
 [branch]
 	autosetupmerge = always
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
 [credential]
-	helper = store
-[github]
-	user = kelvinzhu-okta
+	helper = /Users/kelvinzhu/src/atko-eng-services/developer-utilities/git/security/helpers/git-credential-okta-aurm --debug --integration-check --run-log --log-file /Users/kelvinzhu/git-credential-okta-aurm.log -c /Users/kelvinzhu/.virtualenvs/githubsetup/bin/aurm
+    useHttpPath = true
+[commit]
+	gpgsign = true

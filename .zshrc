@@ -58,3 +58,8 @@ export RPROMPT="[%D{%y/%m/%f}|%@]"
 # strap:straprc:begin
 [ -r "$HOME/.strap/etc/straprc" ] && . "$HOME/.strap/etc/straprc"
 # strap:straprc:end
+
+export PATH=${PATH}:/Users/kelvinzhu/okta/release-tools/resources/shortcuts
+
+GPG_TTY=$(tty)
+export GPG_TTY

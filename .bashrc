@@ -5,3 +5,5 @@ PS1="[\d \t \u@\h:\[$txtgrn\]\w\[\e[m\] ] \[$bldred\]\$(__git_ps1)\[\e[m\] $ "
 # strap:straprc:begin
 [ -r "$HOME/.strap/etc/straprc" ] && . "$HOME/.strap/etc/straprc"
 # strap:straprc:end
+
+export PATH=${PATH}:/Users/kelvinzhu/okta/release-tools/resources/shortcuts
